@@ -89,8 +89,7 @@ map.on('click', 'libraries', function(f) {
   // Using Turf, find the nearest hospital to library clicked
   var refLibrary = f.features[0];
   var nearestHospital = turf.nearest(refLibrary, hospitalPoints);
-  var options = {units: 'miles'};
-  var distance = turf.distance(refLibrary, hospitalPoints.features[0].geometry.coordinates, options);
+  
   // Update the 'nearest-hospital' data source to include the nearest library
 	map.getSource('nearest-hospital').setData({
       type: 'FeatureCollection',
@@ -98,6 +97,9 @@ map.on('click', 'libraries', function(f) {
         nearestHospital
       ]
     });
+
+    var options = {units: 'miles'};
+    var distance = turf.distance(refLibrary, nearestHospital, options);
 
     // Create a new circle layer from the 'nearest-hospital' data source
     map.addLayer({

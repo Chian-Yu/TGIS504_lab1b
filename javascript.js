@@ -89,7 +89,7 @@ map.on('click', 'libraries', function(f) {
   // Using Turf, find the nearest hospital to library clicked
   var refLibrary = f.features[0];
   var nearestHospital = turf.nearest(refLibrary, hospitalPoints);
-  
+
   // Update the 'nearest-hospital' data source to include the nearest library
 	map.getSource('nearest-hospital').setData({
       type: 'FeatureCollection',

@@ -80,7 +80,7 @@ map.on('click', 'hospitals', function(e) {
   var feature = e.features[0];
 
   popup.setLngLat(feature.geometry.coordinates)
-    .setHTML(feature.properties.NAME + '<br>' + feature.properties.STREET)
+    .setHTML(feature.properties.NAME + 'located at ' + feature.properties.ADDRESS)
     .addTo(map);
 
 });
